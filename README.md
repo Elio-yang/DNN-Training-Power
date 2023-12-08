@@ -7,18 +7,12 @@ We provide two types of traces.
 1. Train trace: We trained six different (model, dataset) pairs with many different batch sizes. And we repeated training at least four times for each triplet with different random seeds. Thus, when we would like to know the result of training a model on a dataset with a certain batch size, we can sample a *training path* from this trace.
 2. Power trace: We profiled the the duration of one epoch and average power consumption for six (model, dataset) pairs with many different (batch size, power limit) configurations. These results not stochastic, and can be fetched from the trace to construct TTA (time to accuracy) and ETA (energy to accuracy) values.
 
-Refer to the [`trace`](../../trace/) directory for more information about the traces we provide.
+Refer to the [`trace`](trace/) directory for more information about the traces we provide.
 
 
 ## Simulating the recurrence of one job
 
 With [`run_single.py`](run_single.py), you can simulate the optimization trajectory of one recurring job.
-
-### Dependencies
-
-1. Install `zeus` following [Installing and Building](https://ml.energy/zeus/getting_started/installing_and_building/). The power monitor is not needed.
-
-All dependencies are already installed you're using our Docker image (see [Environment setup](https://ml.energy/zeus/getting_started/environment/)).
 
 ### Example command
 
@@ -43,12 +37,6 @@ python run_single.py \
 With [`run_alibaba.py`](run_alibaba.py), you can simulate jobs in the [Alibaba GPU cluster trace](https://github.com/alibaba/clusterdata/tree/master/cluster-trace-gpu-v2020).
 
 Please refer to our paper for details on how jobs in our train/power traces are mapped to tasks in the Alibaba trace.
-
-### Dependencies
-
-1. Install `zeus` following [Installing and Building](https://ml.energy/zeus/getting_started/installing_and_building/). The power monitor is not needed.
-
-All dependencies are already installed you're using our Docker image (see [Environment setup](https://ml.energy/zeus/getting_started/environment/)).
 
 ### Example command
 
