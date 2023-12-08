@@ -1,0 +1,131 @@
+# Project information
+site_name: Zeus Project
+site_url: https://ml.energy/zeus
+site_author: Jae-Won Chung
+site_description: Deep learning energy measurement and optimization
+edit_uri: ""
+
+# Repository
+repo_name: ml-energy/zeus
+repo_url: https://github.com/ml-energy/zeus
+
+# Copyright
+copyright: Copyright &copy; 2023 Jae-Won Chung
+
+# Theme configuration
+theme:
+  name: material
+  custom_dir: docs/overrides
+  logo: assets/img/logo.svg
+  favicon: assets/img/favicon.svg
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - search.suggest
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.instant
+    - navigation.instant.prefetch
+    - content.tooltips
+    - announce.dismiss
+  palette:
+    - scheme: slate
+      primary: zeus
+      accent: zeus
+      toggle:
+        icon: fontawesome/solid/sun
+        name: Switch to light mode
+    - scheme: default
+      primary: zeus
+      accent: zeus
+      toggle:
+        icon: fontawesome/regular/moon
+        name: Switch to dark mode
+
+
+# MkDocs plugins
+plugins:
+  - search
+  - autorefs
+  - social:
+      cards_dir: assets/img/social
+      cards_layout_options:
+        background_color: "#f7e96d"
+        color: "#231f20"
+  - gen-files:
+      scripts:
+        - docs/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - section-index
+  - mkdocstrings:
+      handlers:
+        python:
+          import:
+            - https://pytorch.org/docs/stable/objects.inv
+          options:
+            show_root_heading: true
+            members_order: "source"
+            filters: ["!Test"]
+            separate_signature: true
+            docstring_options:
+              ignore_init_summary: true
+
+# Extensions
+markdown_extensions:
+  - meta
+  - abbr
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+# Appearance
+extra_css:
+  - assets/css/custom.css
+  - assets/css/color.css
+
+# For Mathjax
+extra_javascript:
+  - assets/js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Page tree
+nav:
+  - Home: index.md
+  - Overview: 
+    - overview/index.md
+  - Getting Started:
+    - getting_started/index.md
+    - Environment Setup: getting_started/environment.md
+    - Installing and Building: getting_started/installing_and_building.md
+  - Perseus:
+    - perseus/index.md
+    - Integrating: perseus/integrating.md
+  - Extending Zeus: extend.md
+  - Source Code Reference: reference/
+
+# Extra stuff
+extra:
+  analytics:
+    provider: google
+    property: G-T3W21TQ7FJ
+  social:
+    - name: Zeus GitHub repository
+      icon: fontawesome/brands/github
+      link: https://github.com/ml-energy/zeus
+    - name: Zeus Docker Hub registry
+      icon: fontawesome/brands/docker
+      link: https://hub.docker.com/r/mlenergy/zeus

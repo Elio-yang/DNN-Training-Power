@@ -1,0 +1,13 @@
+.vscode/
+.ipynb_checkpoints
+.ccls-cache
+.envrc
+__pycache__/
+*.egg-info
+site/
+build/
+dist/
+*.log
+*.json
+**/.DS_Store
+.cache/
